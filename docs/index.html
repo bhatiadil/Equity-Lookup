@@ -1,0 +1,80 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Equity Lookup (Exact Match)</title>
+  styles.css
+</head>
+
+<body>
+  <header class="container header">
+    <div>
+      <h1>Equity Lookup</h1>
+      <p class="muted">
+        Exact-match lookup for FinanceDatabase equities. Default: ISIN. Bulk paste supported. Grouped results.
+      </p>
+    </div>
+    <div class="kbd-hints">
+      <span class="kbd">/</span> Focus
+      <span class="sep">·</span>
+      <span class="kbd">Esc</span> Clear
+      <span class="sep">·</span>
+      <span class="kbd">Ctrl</span>+<span class="kbd">Enter</span> Search
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <div class="controls">
+        <div class="field">
+          <label for="field">Field</label>
+          <select id="field" aria-label="Search field">
+            <option value="isin" selected>ISIN (default)</option>
+            <option value="symbol">Ticker (symbol)</option>
+            <option value="name">Name</option>
+            <option value="country">Country</option>
+            <option value="description">Description</option>
+            <option value="auto">Auto-detect (ISIN → Ticker → Name)</option>
+          </select>
+        </div>
+
+        <div class="search">
+          <label for="q">Paste one or many (exact values)</label>
+          <textarea id="q" rows="3"
+            placeholder="Paste ISINs (or other exact values). Separate with new lines or commas.&#10;Example:&#10;US0378331005&#10;GB00BH4HKS39"></textarea>
+          <div class="hint muted">
+            Tip: Exact match is case-insensitive and trims spaces. Bulk paste supports comma/newline/space separation.
+          </div>
+        </div>
+
+        <div class="actions">
+          <button id="go" type="button" class="primary">Search</button>
+          <button id="copyLink" type="button">Copy link</button>
+          <button id="downloadCsv" type="button">Download CSV</button>
+          <button id="clear" type="button">Clear</button>
+        </div>
+      </div>
+
+      <div class="meta">
+        <span id="status" class="muted">Loading…</span>
+        <span id="stats" class="muted"></span>
+      </div>
+
+      <div id="recentWrap" class="recentWrap">
+        <div class="recentTitle muted">Recent</div>
+        <div id="recent" class="recent"></div>
+      </div>
+    </section>
+
+    <section id="results" class="results" aria-live="polite"></section>
+  </main>
+
+  <footer class="container footer muted">
+    Hosted with GitHub Pages. Data: FinanceDatabase equities (categorisation database).
+  </footer>
+
+  app.js</script>
+</body>
+</html>
